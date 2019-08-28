@@ -575,7 +575,7 @@ export class StateMachineInstance implements IInstance {
    * @param name The optional name of the [[StateMachineInstance]].
    * @param context The optional injectable [[SMContext ]] of the [[StateMachineInstance]]
    */
-  public constructor(public name: string = 'unnamed', private context: SMContext = {logger: console, id: uuid.v4() }) {
+  public constructor(public name: string = 'unnamed', private context: SMContext = {logger: console, trace_id: uuid.v4() }) {
     this.name = name;
   }
 
@@ -583,8 +583,8 @@ export class StateMachineInstance implements IInstance {
     return this.context.logger;
   }
 
-  public getContextId(): string {
-    return this.context.id;
+  public getContextTraceId(): string {
+    return this.context.trace_id;
   }
 
   /**
@@ -657,7 +657,7 @@ export class JSONInstance implements IInstance {
    * @param name The optional name of the [[JSONInstance]].
    * @param context The optional inejctable execution [[SMContext]] to use with the [[JSONInstance]].
    */
-  public constructor(public name: string = 'unnamed', private context: SMContext = { logger: console, id: uuid.v4()}) {
+  public constructor(public name: string = 'unnamed', private context: SMContext = { logger: console, trace_id: uuid.v4()}) {
     this.transitionTrace = [];
   }
 
@@ -665,8 +665,8 @@ export class JSONInstance implements IInstance {
     return this.context.logger;
   }
 
-  public getContextId(): string {
-    return this.context.id;
+  public getContextTraceId(): string {
+    return this.context.trace_id;
   }
 
   /**
@@ -898,7 +898,7 @@ export interface IInstance {
 
   getLogger(): SMConsole;
   
-  getContextId(): string;
+  getContextTraceId(): string;
 }
 
 /**
@@ -1520,7 +1520,7 @@ export let console = {
 
 export interface SMContext {
   logger: SMConsole;
-  id: string;
+  trace_id: string;
 }
 export interface SMConsole {
   log(message?: any, ...optionalParams: any[]): void;

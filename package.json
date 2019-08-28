@@ -1,6 +1,6 @@
 {
-	"name": "stateasync.js",
-	"version": "1.0.4",
+	"name": "@rumbleship/state_async",
+	"version": "1.0.5",
 	"author": "Original:David Mesquita-Morris",
 	"contributors": [
 		"David Mesquita-Morris",
@@ -19,10 +19,12 @@
 		"coverage": "CODECLIMATE_REPO_TOKEN=111df745fd4988fccdb084cd48dfb18cd152e6fb6476c473e911b1fbdfa3de76 codeclimate-test-reporter < ./coverage/lcov.info"
 	},
 	"devDependencies": {
+		"@types/uuid": "^3.4.5",
 		"codeclimate-test-reporter": "latest",
 		"mocha": "latest",
 		"nyc": "latest",
-		"typescript": "latest"
+		"typescript": "latest",
+		"uuid": "^3.3.3"
 	},
 	"keywords": [
 		"state machine",
@@ -49,8 +51,7 @@
 	"bugs": {
 		"url": "https://github.com/steelbreeze/state.js/issues"
 	},
-	"dependencies": {
-		"@types/uuid": "^3.4.5",
+	"peerDependencies": {
 		"uuid": "^3.3.3"
 	},
 	"licenses": [
